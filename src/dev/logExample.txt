@@ -1,0 +1,15 @@
+example log
+
+> Archer died! 4 Soul Power collected.
+> Archer took 11 damage.
+> Wight slashes Archer for 12 damage.
+> Wight approaches Archer.
+> An Archer appears!
+> Lil' Necromancer killed a Knight and turned her into a Wight!
+> Knight died! 13 Soul Power collected.
+> Knight took 42 damage.
+> Lil' Necromancer performed Soul Burst in retaliation to taking damage, dealing 50 damage to ALL units.
+> Lil' Necromancer took 34 damage from Knight.
+> Knight attacks Lil' Necromancer for 40 damage.
+> Knight approaches Lil' Necromancer.
+> A Knight appears!
