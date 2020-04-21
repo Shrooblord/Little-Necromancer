@@ -1,7 +1,7 @@
 Let's make a game!
 	name:Little Necromancer
 	by:Shrooblord
-	desc:In a world full of uncorrupted souls, a little necromancer has but one thing to do:<//>collect the souls for her own and rise to power as queen amongst all the Evil Overlords!
+	desc:In a world full of uncorrupted <b>Souls</b>, a little necromancer has but one thing to do:<//>collect the <b>Souls</b> for her own and rise to power as queen amongst all the <b>Evil Overlords</b>!
 	created:20/04/2020
 	updated:20/04/2020
 	version:0.1
@@ -11,7 +11,7 @@ Settings
 	background:https://i.imgur.com/FcIeLxo.png
 	building cost increase:115%
 	building cost refund:50%
-	spritesheet:icons, 48 by 48, stuff/bunnyIcons.png
+	spritesheet:icons, 48 by 48, https://i.imgur.com/cmvR6Mu.png
 	stylesheet:https://pastebin.com/raw/N94VJ8zi
 
 	
@@ -42,11 +42,82 @@ Layout
 
 
 
+Includes
+	*include spLog %amount="1" : log You gained [%amount] <b>Soul Power</b>! You currently have [sp] <b>SP</b>, and have harvested [sp:earned] SP in total.
+
+
+
+/*
 Buttons
 	*soulButton
+		icon:icons[0,0]
+		//don't show the "button"; only show the icon (i.e. a sprite)
+		no text
+		no tooltip
+		class:noBackground
 		on click:
+			spawn unknownEnemy
+		end
+*/		
+
+
+Shinies
+	*TEMPLATE
+		no text
+		no tooltip
+		class:noBackground
+		
+		frequency:0
+		duration:20
+		
+		tag:enemy
+
+
+	*unknownEnemy
+		name:Unidentified Enemy
+		icon:icons[0,0]
+		//don't show the "button"; only show the icon (i.e. a sprite)
+		
+		frequency:1
+		duration:20
+		
+		movement:onBox:buttons
+			
+		on click:
+			if (chance(50%))
+				log It's a Wizard!
+				spawn wizard
+			else
+				log It's an Ogre!
+				spawn ogre
+			end
+			
+			//yield 1 sp
+			//[include spLog]
+		end
+	
+	
+	*wizard
+		name:Wizard
+		icon:icons[1,0]
+		
+		movement:onMouse
+		
+		on click:			
 			yield 1 sp
-			log You have [sp] Soul Power, and have harvested [sp:earned] SP in total.
+			[include spLog]
+		end
+		
+		
+	*ogre
+		name:Ogre
+		icon:icons[2,0]
+		
+		movement:onMouse
+		
+		on click:			
+			yield 1 sp
+			[include spLog]
 		end
 
 
@@ -54,7 +125,7 @@ Buttons
 Resources
 	*soulPower|sp
 		name:Soul Power
-		desc:This is Lil' Necromancer's Soul Power. Increase her abilities by harvesting more Souls to increase her Soul Power!
+		desc:This is <b>Lil' Necromancer</b>'s <b>Soul Power</b>. Increase her abilities by harvesting more <b>Souls</b> to increase her <b>Soul Power</b>!
 		icon:icons[0,0]
 		class:noBackground
 		show earned

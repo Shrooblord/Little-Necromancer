@@ -46,10 +46,11 @@
 }
 #box-buttons
 {
-	top:0px;
-	right:0px;
+	top:10%;
+	right:2%;
 	bottom:0px;
-	left:0px;
+	left:2%;
+	height:75%;
 	position:absolute;
 }
 #log
@@ -173,3 +174,10 @@
 }
 
 #game.filtersOn .thing-icon{filter:drop-shadow(3px 3px 1px rgba(0,0,0,0.5));}
+
+
+//Custom classes
+.shiny
+{
+	margin-left: 300px;
+}
