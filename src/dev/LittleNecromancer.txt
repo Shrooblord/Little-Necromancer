@@ -6,12 +6,66 @@ Let's make a game!
 	updated:20/04/2020
 	version:0.1
 
+
 Settings
-	background:https://i.imgur.com/bLaNv7I.png
+	background:https://i.imgur.com/FcIeLxo.png
 	building cost increase:115%
 	building cost refund:50%
 	spritesheet:icons, 48 by 48, stuff/bunnyIcons.png
 	stylesheet:https://pastebin.com/raw/N94VJ8zi
+
 	
 Layout
-  use default
+*main
+	contains:res, buttons, Log
+	
+	*res
+		contains:Resources
+		class:fullWidth
+		
+	*buttons
+		contains:Buttons
+
+*store
+	contains:buildings, upgrades
+	
+	*buildings
+		contains:BulkDisplay, Buildings
+		header:Buildings
+		tooltip origin:left
+		
+	*upgrades
+		contains:Upgrades
+		header:Upgrades
+		costs:hide
+		names:hide
+
+
+
+Buttons
+	*soulButton
+		on click:
+			yield 1 sp
+			log You have [sp] Soul Power, and have harvested [sp:earned] SP in total.
+		end
+
+
+
+Resources
+	*soulPower|sp
+		name:Soul Power
+		desc:This is Lil' Necromancer's Soul Power. Increase her abilities by harvesting more Souls to increase her Soul Power!
+		icon:icons[0,0]
+		class:noBackground
+		show earned
+
+
+
+Buildings
+	*soulDrain
+		name:Soul Drain
+		desc:An outlet for all that Soul Power you've accumulated; consumes 10 SP per second while your SP is 20 or over. Let it all out!
+		cost:20 sp
+		on tick:
+			if (sp >= 20) lose 10 sp
+		end
